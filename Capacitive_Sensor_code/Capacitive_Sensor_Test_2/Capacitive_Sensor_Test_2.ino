@@ -1,17 +1,19 @@
 #include <CapacitiveSensor.h>
 // initiate globals variables for number of licks, number of loop cycles, two value holders and 
 // the capacitive sensor object itself 
-int lick1, lick2;
+int lick1, lick2, lick3;
 float curTime1 = 0;
 float curTime2 = 0;
-int hour1, hour2;
-int minute1, minute2; 
-int second1, second2;
+float curTime3 = 0;
+int hour1, hour2, hour3;
+int minute1, minute2, minute3; 
+int second1, second2, second3;
 int loopCount = 1;
-long cs1_1v, cs1_2v, cs2_1v, cs2_2v;
-String dateTime1, dateTime2;
+long cs1_1v, cs1_2v, cs2_1v, cs2_2v, cs3_1v, cs3_2v;
+String dateTime1, dateTime2, dateTime3;
 CapacitiveSensor cs1 = CapacitiveSensor(4, 5);
 CapacitiveSensor cs2 = CapacitiveSensor(2, 3);
+CapacitiveSensor cs3 = CapacitiveSensor(6, 7);
 
 void setup() {
   // open serial port
@@ -55,6 +57,23 @@ void loop() {
       lick2++;
     }
   }
+   if (loopCount % 2 != 0){
+    cs3_1v = cs3.capacitiveSensor(80);
+    // check to see if the current value is over threshold and previous value was under threshold
+    // if so, the licks value is incremented by 1
+    if (cs3_1v > 1000 && cs3_2v < 1500){
+      curTime3 = millis();
+      lick3++;
+    }
+  } else {
+    // check to see if the current value is over threshold and previous value was under threshold
+    // if so, the licks value is incremented by 1
+    cs3_2v = cs3.capacitiveSensor(80);
+    if (cs3_2v > 1000 && cs3_1v < 1500){
+      curTime3 = millis();
+      lick3++;
+    }
+  }
 
   // take the milliseconds that the program has been running and transform into hour:min:sec
   second1 = curTime1/1000;
@@ -71,6 +90,13 @@ void loop() {
   hour2 = floor(minute2/60);
   minute2 = minute2%60;
   dateTime2 = String(hour2) + ":" + String(minute2) + ":" + String(second2);
+  second3 = curTime3/1000;
+  second3 = round(second3);
+  minute3 = floor(second3/60);
+  second3 = second3%60;
+  hour3 = floor(minute3/60);
+  minute3 = minute3%60;
+  dateTime3 = String(hour3) + ":" + String(minute3) + ":" + String(second3);
 
   
   Serial.print(lick1);
@@ -79,7 +105,11 @@ void loop() {
   Serial.print(" ; ");
   Serial.print(lick2);
   Serial.print(" , ");
-  Serial.println(dateTime2);
+  Serial.print(dateTime2);
+  Serial.print(" ; ");
+  Serial.print(lick3);
+  Serial.print(" , ");
+  Serial.println(dateTime3);
   delay(20);
   loopCount++;
 }

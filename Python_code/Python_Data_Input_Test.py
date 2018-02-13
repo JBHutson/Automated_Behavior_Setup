@@ -10,7 +10,16 @@ while True:
         pass
     arduinoString = arduinoData.readline()
     arduinoString = arduinoString.decode().strip('\r\n')
-    print(arduinoString)
+    # first parse
+    licksAndTimes = arduinoString.split(";")
+    cage1 = licksAndTimes[0]
+    cage2 = licksAndTimes[1]
+    cage3 = licksAndTimes[2]
+
+
+def parseLicksAndTimes(cage):
+    singleLicksAndTime = cage.split(",")
+    return singleLicksAndTime
 
 
 
