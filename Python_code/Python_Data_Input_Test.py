@@ -1,7 +1,6 @@
 import serial
-# import numpy
-# import matplotlib.pyplot as plt
-# from drawnow import *
+import numpy
+import matplotlib.pyplot as plt
 
 arduinoData = serial.Serial('com4', 9600)
 
@@ -16,6 +15,7 @@ while True:
     cage2 = licksAndTimes[1]
     cage3 = licksAndTimes[2]
 
+    print cage1
 
 def parseLicksAndTimes(cage):
     singleLicksAndTime = cage.split(",")
