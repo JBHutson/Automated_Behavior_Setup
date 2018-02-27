@@ -15,10 +15,11 @@ cage3Times = []
 
 def parseLicksAndTimes(cage, cageLicks, cageTimes):
     singleLicksAndTime = cage.split(",")
-    licks = singleLicksAndTime[0]
+    licks = int(singleLicksAndTime[0])
     time = singleLicksAndTime[1]
     cageLicks.append(licks)
     cageTimes.append(time)
+    print licks
 
 arduinoData = serial.Serial('com4', 9600)
 
@@ -32,10 +33,11 @@ while True:
     cage1 = licksAndTimes[0]
     cage2 = licksAndTimes[1]
     cage3 = licksAndTimes[2]
+    
 
-    parseLicksAndTimes(cage1, cage1Licks, cage1Times)
-    parseLicksAndTimes(cage2, cage2Licks, cage2Times)
-    parseLicksAndTimes(cage3, cage3Licks, cage3Times)
+    #parseLicksAndTimes(cage1, cage1Licks, cage1Times)
+   # parseLicksAndTimes(cage2, cage2Licks, cage2Times)
+   # parseLicksAndTimes(cage3, cage3Licks, cage3Times)
 
 
 
