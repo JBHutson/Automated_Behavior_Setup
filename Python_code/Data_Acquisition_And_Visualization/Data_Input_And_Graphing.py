@@ -1,6 +1,6 @@
 import serial
-import numpy
-import matplotlib.pyplot as plt
+# import numpy
+# import matplotlib.pyplot as plt
 
 # arrays for number of licks
 cage1Licks = []
@@ -28,11 +28,12 @@ while True:
         pass
     arduinoString = arduinoData.readline()
     arduinoString = arduinoString.decode().strip('\r\n')
+    print arduinoString
     # first parse
-    licksAndTimes = arduinoString.split(";")
-    cage1 = licksAndTimes[0]
-    cage2 = licksAndTimes[1]
-    cage3 = licksAndTimes[2]
+    # licksAndTimes = arduinoString.split(";")
+    # cage1 = licksAndTimes[0]
+    # cage2 = licksAndTimes[1]
+    # cage3 = licksAndTimes[2]
     
 
     #parseLicksAndTimes(cage1, cage1Licks, cage1Times)
