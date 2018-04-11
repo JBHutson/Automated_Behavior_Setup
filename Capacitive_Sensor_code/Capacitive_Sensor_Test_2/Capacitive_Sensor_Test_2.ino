@@ -27,7 +27,7 @@ void loop() {
     cs1_1v = cs1.capacitiveSensor(80);
     // check to see if the current value is over threshold and previous value was under threshold
     // if so, the licks value is incremented by 1
-    if (cs1_1v > 1000 && cs1_2v < 1500){
+    if (cs1_1v > 40 && cs1_2v < 80){
       curTime1 = millis();
       lick1++;
     }
