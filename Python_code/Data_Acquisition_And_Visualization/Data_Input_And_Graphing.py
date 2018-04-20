@@ -1,4 +1,5 @@
 import serial
+import time
 # import numpy
 # import matplotlib.pyplot as plt
 
@@ -21,16 +22,21 @@ def parseLicksAndTimes(cage, cageLicks, cageTimes):
     cageTimes.append(time)
     print licks
 
-arduinoData = serial.Serial('com4', 9600)
+def manipulation(dataLine):
+    licksAndTimes = dataLine.split(';')
 
-while True:
-    while(arduinoData.inWaiting()==0):
-        pass
-    arduinoString = arduinoData.readline()
-    arduinoString = arduinoString.decode().strip('\r\n')
-    print arduinoString
+f = open('random.txt', 'r')
+
+while 1:
+    where = f.tell()
+    line = f.readline()
+    if not line:
+        time.sleep(1)
+        f.seek(where)
+    else:
+        manipulation(line)
+
     # first parse
-    # licksAndTimes = arduinoString.split(";")
     # cage1 = licksAndTimes[0]
     # cage2 = licksAndTimes[1]
     # cage3 = licksAndTimes[2]
