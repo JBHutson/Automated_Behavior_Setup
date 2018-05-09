@@ -1,3 +1,5 @@
+# runs on Pi, makes Pi a server that sends data to the client computer
+
 import socket
 import string
 
