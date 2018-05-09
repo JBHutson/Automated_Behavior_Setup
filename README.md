@@ -7,4 +7,4 @@ licks via lick-o-meter.
 
 Capacitive Sensor: This sub-folder contains the C++ code that should be used with an Arduino to create the circuits with drinking bottles that will allow for the detection of licks from the mouse
 
-Python Code: this sub-folder contains the python code that will take the data from the arduino and both present a live graph as well as save the data in a .csv folder for future reference
+Main Code: This sub-folder contains the code to run the server and client between the Raspberry Pi and the Computer, the code to for the manipulation of the data sent to the computer, the GUI code (unfinished) and the shell drivers for the computer and Pi.
