@@ -9,7 +9,7 @@ serverPort = 60221
 # create socket object
 sock = socket(AF_INET, SOCK_STREAM)
 
-# connect socket object ot server
+# connect socket object to server
 sock.connect((serverHost, serverPort))
 
 # open serial communication between arduino and the client
