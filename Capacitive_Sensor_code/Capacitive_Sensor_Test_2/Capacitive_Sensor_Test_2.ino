@@ -98,7 +98,7 @@ void loop() {
   minute3 = minute3%60;
   dateTime3 = String(hour3) + ":" + String(minute3) + ":" + String(second3);
 
-  
+  // print the lick and timestamp values to the serial port
   Serial.print(lick1);
   Serial.print(" , ");
   Serial.print(dateTime1);
