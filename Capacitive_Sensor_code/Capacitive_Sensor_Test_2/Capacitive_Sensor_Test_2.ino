@@ -1,3 +1,5 @@
+// arduino code that creates and runs multiple capacitive circut lick-o-meters simultaniously
+
 #include <CapacitiveSensor.h>
 // initiate globals variables for number of licks, number of loop cycles, two value holders and 
 // the capacitive sensor object itself 
