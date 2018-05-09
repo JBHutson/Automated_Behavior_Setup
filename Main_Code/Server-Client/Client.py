@@ -1,3 +1,5 @@
+# runs on computer, makes computer a client of the Pi server that sends data
+
 import sys
 import socket
 import serial
