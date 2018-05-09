@@ -1,3 +1,5 @@
+# This code runs on the computer, parses and manipulates data 
+
 import serial
 import time
 # import numpy
