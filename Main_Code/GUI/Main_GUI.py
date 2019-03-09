@@ -1,14 +1,30 @@
-import Tkinter as tk
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+import sys
 
-# make master window
-master = tk.Tk()
+class App(QWidget):
 
-# make entry field
-e = tk.Entry(master,width=30)
-e.pack()
+    def __init__(self):
+        super().__init__()
+        self.title = 'Lick-o-Meter'
+        self.width = 640
+        self.height = 480
+        self.initUI()
 
-e.insert(0, "give time interval in minutes")
+    def initUI(self):
+        self.setWindowTitle(self.title)
+        self.resize(self.width, self.height)
+        self.center()
 
+    def center(self):
+        qtRectangle = self.frameGeometry()
+        centerPoint = QDesktopWidget().availableGeometry().center()
+        qtRectangle.moveCenter(centerPoint)
+        self.move(qtRectangle.topLeft())
+        self.show()
 
-
-tk.mainloop()
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = App()
+    sys.exit(app.exec())
