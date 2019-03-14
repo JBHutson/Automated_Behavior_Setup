@@ -15,8 +15,8 @@ class App(QMainWindow):
     def __init__(self):
         super().__init__()
         self.title = 'Lick-o-Meter'
-        self.width = 640
-        self.height = 480
+        self.width = 1200
+        self.height = 900
         self.initUI()
 
     def initUI(self):
@@ -26,7 +26,7 @@ class App(QMainWindow):
         
         self.mainWidget = QWidget(self)
 
-        windowLayout = QHBoxLayout(self.mainWidget)
+        windowLayout = QGridLayout(self.mainWidget)
 
         cageOne = PlotCanvas(self.mainWidget)
         cageOne.setName('Cage 1')
@@ -37,10 +37,10 @@ class App(QMainWindow):
         cageFour = PlotCanvas(self.mainWidget)
         cageFour.setName('Cage 4')
 
-        windowLayout.addWidget(cageOne)
-        windowLayout.addWidget(cageTwo)
-        windowLayout.addWidget(cageThree)
-        windowLayout.addWidget(cageFour)
+        windowLayout.addWidget(cageOne,0,0)
+        windowLayout.addWidget(cageTwo,0,1)
+        windowLayout.addWidget(cageThree,1,0)
+        windowLayout.addWidget(cageFour,1,1)
 
         self.mainWidget.setFocus()
         self.setCentralWidget(self.mainWidget)
@@ -66,8 +66,10 @@ class PlotCanvas(FigureCanvas):
         self.plot()
 
     def plot(self):
-        data = [random.random() for i in range(25)]
-        self.axes.plot(data, 'r-')
+        self.axes.set_xticks([1,2,3,4,5,6,7,8,9,10], minor=True)
+        self.axes.set_yticks(range(1,51), minor=True)
+        self.axes.set_xlabel('Minute of Experiment')
+        self.axes.set_ylabel('Licks')
         self.draw()
 
     def setName(self, plotName):
