@@ -1,14 +1,14 @@
+""" main window for the GUI """
+
+import random
+import sys
+
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
-
-import sys
-
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import matplotlib.pyplot as plt
-
-import random
 
 class App(QMainWindow):
 

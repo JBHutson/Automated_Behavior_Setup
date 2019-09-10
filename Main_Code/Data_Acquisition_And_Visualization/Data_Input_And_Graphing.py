@@ -1,7 +1,7 @@
-# This code runs on the computer, parses and manipulates data 
+""" moduel that takes serial input from the arduino and parses it for the computer """
 
-import serial
 import time
+
 import numpy as np
 import matplotlib.pyplot as plt
 
